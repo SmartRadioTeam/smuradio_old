@@ -1,0 +1,49 @@
+body {
+    padding:40px;
+}
+
+div#main {
+    width:60%;
+    margin:auto;
+}
+
+div#article {
+    margin:20px;
+}
+
+#article img{
+    box-shadow:0px 0px 5px #000;
+}
+
+textarea{
+    min-width:720px;
+    max-width:720px;
+    min-height:300px;
+    max-height:300px;
+}
+
+a#add{
+    float:right;
+    visibility:hidden;
+}
+
+a#add2{
+
+    visibility:hidden;
+}
+
+td#addanime:hover a#add2{
+    visibility:visible;
+}
+
+th#addanime:hover a#add2{
+    visibility:visible;
+}
+
+td#addanime:hover a#add {
+    visibility:visible;
+}
+
+th#addanime:hover a#add{
+    visibility:visible;
+}
