@@ -10,7 +10,7 @@ include ("class/t.htm");
 			<?php
 include ("../class/message.php");
 ?>	
-	  <form name=myform action="http://r.smxybbs.net/class/update.php" method="post">
+	  <form name=myform action="../class/update.php" method="post">
 	  <p>歌曲名：<input type="text"name="name"></p>
 	  <p>点歌人：<input type="text"name="user"></p>
 	  <p>送给：<input type="text"name="to"></p>
