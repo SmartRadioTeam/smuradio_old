@@ -1,7 +1,7 @@
 <?php
 include("../../class/conn.php");
 $pw=$_POST['pw'];
-if($pw=="sanmingxueyuanradio"){
+if($pw==""){
 $sql = "TRUNCATE TABLE `radio`";
 $result = mysql_query($sql,$con);
 if($result){header("Location: http://r.smxybbs.net/admin/go.php");}
