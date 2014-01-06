@@ -24,6 +24,7 @@ $filename= substr( $url , strrpos($url , '/')+1 );
 	<li<?php if($filename=="tnoplay.php"){echo ' class="active"';}?>><a href="tnoplay.php">未播放点播</a></li>
 	<li<?php if($filename=="post.php"){echo ' class="active"';}?>><a href="post.php">自动点歌系统管理</a></li>
 	<li><a href="../mobile">返回旧版</a></li>
+	<li><a href="../class/outlogin.php">退出</a></li>
           </ul>
         </div>
       </div>
