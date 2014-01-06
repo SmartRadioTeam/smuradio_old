@@ -1,11 +1,12 @@
       <meta http-equiv="Content-Type" content="text/html; charset=gbk">
 <?php
 include ("class/pctest.php");
+include("../class/conf.php");
 ?>
-	  <title>点播 - 三明学院点歌台</title>
+	  <title>点播 - <?php echo PROJECTNAME;?> - Powered by smuradio</title>
 		<?php
 include ("class/t.htm");
-?>	  	          <h3>三明学院点歌台提交歌单</h3>
+?>	  	          <h3><?php echo PROJECTNAME;?></h3>
         <h5>每天音乐好心情</h5>
 			<?php
 include ("../class/message.php");
@@ -20,4 +21,4 @@ include ("../class/message.php");
 <input type="submit" value="提交" name="m">
 </form>
 <br>
-<a href="http://www.smxybbs.net/">技术支持:三明学院论坛工作室</a>
+<a href="http://www.smxybbs.net/">技术支持:三明学院论坛工作室</a><br>Program Design by qwe7002.

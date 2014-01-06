@@ -33,11 +33,11 @@ $to = str_replace('>', '', $to);
 $time = str_replace('<', '', $time);
 $time = str_replace('>', '', $time);
 if($name==""||$user==""||$message==""||$to==""||$time==""){  
-header("Location: http://r.smxybbs.net/class/go.php?echo=".urlencode("信息不能为空"));
+header("Location: class/go.php?echo=".urlencode("信息不能为空"));
 }
 else{
 if(strlen($message)>280){
-header("Location: http://r.smxybbs.net/class/go.php?echo=".urlencode("祝福超过140字，请修改后发布！"));
+header("Location: class/go.php?echo=".urlencode("祝福超过140字，请修改后发布！"));
 }else{
 //url转码
 $user=urlencode($user);
@@ -49,12 +49,15 @@ $uptime=urlencode($uptime);
 $cip=urlencode($cip);
 
 //写入
-$sql = "INSERT INTO `qwe7002_radio`.`radio` (`user`, `name`, `message`,`to`,`time`,`uptime`,`ip`) VALUES ('$user', '$name', '$message', '$to', '$time','$uptime','$cip');";
+$sql = "INSERT INTO `".MYSQLDB."`.`radio` (`user`, `name`, `message`,`to`,`time`,`uptime`,`ip`) VALUES ('$user', '$name', '$message', '$to', '$time','$uptime','$cip');";
 $result = mysql_query($sql,$con);
 if($result){
-header("Location: http://r.smxybbs.net/class/go.php?echo=".urlencode("您的信息已经成功提交到数据库，请耐心等待广播站排序播放！谢谢！"));}
+header("Location: go.php?echo=".urlencode("您的信息已经成功提交到数据库，请耐心等待广播站排序播放！谢谢！"));
+$sql="ALTER TABLE  `radio` ORDER BY  `id`";
+mysql_query($sql,$con);
+}
 else{
-header("Location: http://r.smxybbs.net/class/go.php?echo=".urlencode("服务器错误！请通知管理员！管理员qq：381511791"));
+header("Location: go.php?echo=".urlencode("服务器错误！请通知管理员！管理员qq：381511791"));
 }
 }
 }

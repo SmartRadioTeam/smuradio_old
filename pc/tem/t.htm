@@ -1,11 +1,7 @@
-<div class="pull-right"><a href="index.php">主页</a>&nbsp;&nbsp;<a href="post.php">点歌</a>&nbsp;&nbsp;<a href="tindex.php">已删除点播</a>&nbsp;&nbsp;<script> 
-var strUrl=window.location.href;
-var arrUrl=strUrl.split("/");
-var strPage=arrUrl[arrUrl.length-1];
-if (window.top!=window.self){
-document.write('<a href="../pc/index.php"  target=_top>关闭音乐</a>');
-}else{
-document.write('<a href="../"  target=_top>打开音乐</a>');
-}
-</script> </div>
+<div class="pull-right">
+<a href="index.php">主页</a>&nbsp;&nbsp;
+<a href="#post" data-toggle="modal">我要点歌</a>&nbsp;&nbsp;
+<a href="tindex.php">已播放点播</a>&nbsp;&nbsp;
+<a href="tnoplay.php">未播放点播</a>&nbsp;&nbsp;
+</div>
 

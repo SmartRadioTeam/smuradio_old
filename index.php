@@ -1,19 +1,31 @@
 <?php
-include("class/testmobile.php");
+$ua=$_COOKIE["ua"];
+if($ua!=""){
+header('Location: /'.$ua);
+}
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<title>三明学院点歌台音乐模式</title>
-<meta name="description" content="三明学院学生宣传中心，三明学院广播站官方网上点歌系统。">
-<meta name="author" content="">
-<meta name="keywords" content="三明学院_三明学院点歌台">
-</head>
-<frameset rows="*,1" frameborder="NO" border="0" framespacing="0">
-  <frame src="pc/index.php" name="mainFrame">
-    <frame src="mp3mode/mp3.htm" name="mainFrame">
-</frameset>
+<script type="text/javascript">
+var system ={
+win : false,
+mac : false,
+xll : false
+};
+var p = navigator.platform;
+system.win = p.indexOf("Win") == 0;
+system.mac = p.indexOf("Mac") == 0;
+system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+if(system.win||system.mac||system.xll){
+if (typeof(Worker) !== "undefined"){
+window.location.href="/pc";
+}else{
+window.location.href="/lostie";
+}
+}else{
+if (typeof(Worker) !== "undefined"){
+window.location.href="/touch";
+}else{
+window.location.href="/mobile";
+}
 
-<noframes><body>
-</body></noframes>
-</html>
+}
+</script>
