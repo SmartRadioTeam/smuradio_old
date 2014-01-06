@@ -1,3 +1,3 @@
 <?php
-setcookie("login", NULL);
+setcookie("login","",time()-3600,"/");
 header("Location: ../go.php");
