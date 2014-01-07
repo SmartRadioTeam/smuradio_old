@@ -59,3 +59,7 @@ CREATE TABLE IF NOT EXISTS `timetable` (
 
 INSERT INTO `timetable` (`deltime`) VALUES
 ('0000-00-00 00:00:00');
+
+CREATE TABLE IF NOT EXISTS `takeoff` (
+  `id` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;

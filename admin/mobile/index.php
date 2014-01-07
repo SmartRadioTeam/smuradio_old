@@ -23,6 +23,13 @@ mysql_close($con);
 <form name=myform action="../../admin/class/del.php" method="post">
 	<p>输入登录密码恢复初始化（此操作将清空所有数据并且无法恢复！请慎用！）<input type="text"name="pw"><input type="submit" value="提交"></p>
 </form>
+<br>
+投稿开关：
+<form name="formoff" action="../class/off.php" method="post">
+打开：<input type="radio" name="off" value="0">&nbsp;&nbsp;
+关闭：<input type="radio" name="off" value="1">&nbsp;&nbsp;
+<input type="submit" class="btn btn-primary" value="提交修改"/>
+</form>
 <hr/>  
 <?php
 include("../../class/conn.php");

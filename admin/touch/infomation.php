@@ -15,6 +15,14 @@ mysql_close($con);
 </font>
 <a href="#infomation" data-toggle="modal" class="btn btn-primary" >修改公告</a>
 </div>
+<div class="alert alert-info">
+投稿开关：
+<form name="formoff" action="../class/off.php" method="post">
+打开：<input type="radio" name="off" value="0">&nbsp;&nbsp;
+关闭：<input type="radio" name="off" value="1">&nbsp;&nbsp;
+<input type="submit" class="btn btn-primary" value="提交修改"/>
+</form>
+</div>
 <?php
 include("../../class/conn.php");
 $sql = "SELECT * FROM `timetable`";

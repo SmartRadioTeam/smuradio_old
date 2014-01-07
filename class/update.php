@@ -1,5 +1,13 @@
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=gbk">
 <?php
+include("conn.php");
+//判断是否被关闭
+$sql = "SELECT * FROM `takeoff` WHERE `id`=0";
+$query=mysql_query($sql,$con);
+$backcount=mysql_num_rows($query); 
+if($backcount==0){
+header("Location: go.php?echo=".urlencode("抱歉，系统拒绝新的点歌，详情请见公告！"));
+}else{
 if(!empty($_SERVER["HTTP_CLIENT_IP"])){
 $cip = $_SERVER["HTTP_CLIENT_IP"];
 }
@@ -14,7 +22,6 @@ $cip = "NULL";
 date_default_timezone_set ('PRC');
 $uptime=date("Y-m-d H:i:s",time());
 
-include_once("conn.php");
 $user=$_POST['user'];
 $name=$_POST['name'];
 $message=$_POST['message'];
@@ -58,6 +65,7 @@ mysql_query($sql,$con);
 }
 else{
 header("Location: go.php?echo=".urlencode("服务器错误！请通知管理员！管理员qq：381511791"));
+}
 }
 }
 }
