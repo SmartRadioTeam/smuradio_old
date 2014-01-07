@@ -22,6 +22,17 @@ mysql_close($con);
 ¹Ø±Õ£º<input type="radio" name="off" value="1">&nbsp;&nbsp;
 <input type="submit" class="btn btn-primary" value="Ìá½»ÐÞ¸Ä"/>
 </form>
+<?php
+include("../../class/conn.php");
+$sql = "SELECT * FROM `takeoff` WHERE `id`=0";
+$query=mysql_query($sql,$con);
+$backcount=mysql_num_rows($query); 
+if($backcount==0){
+echo "×´Ì¬:¾Ü¾øÍ¶¸å";
+}else{
+echo "×´Ì¬:ÔÊÐíÍ¶¸å";
+}
+?>
 </div>
 <?php
 include("../../class/conn.php");
