@@ -1,4 +1,14 @@
-<a href="#post" class="btn btn-primary" data-toggle="collapse">我要点歌</a>
+
+<?php
+include("../class/conn.php");
+//判断是否被关闭
+$sql = "SELECT * FROM `takeoff` WHERE `id`=0";
+$query=mysql_query($sql,$con);
+$backcount=mysql_num_rows($query); 
+if($backcount==0){
+echo '<a href="#" class="btn btn-primary">抱歉，系统拒绝新的点歌，详情请见公告！</a>';
+}else{
+echo '<a href="#post" class="btn btn-primary" data-toggle="collapse">我要点歌</a>
 <div id="post" class="collapse" style="height:0px;">
 <div class="anime img-thumbnail" id="anime">
 	  <form id="form1" name="form1" action="../class/update.php" method="post">
@@ -11,7 +21,9 @@
 </form>
 <input type="button" name="Submit" class="btn btn-success" value="提交" onclick="submit();" />
       </div>
-      </div>
+      </div>';
+}
+?>
 <script type="text/javascript"> 
 function checkLength(which) { 
 var maxChars = 140; 

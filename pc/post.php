@@ -5,7 +5,19 @@
 <h3 style="text-shadow:0px 0px;"><font color="#000000">提交点歌单</font></h3>
 </div>
 <div class="modal-body">
-      <form id="form1" name="form1" action="../class/update.php" method="post">
+<?php
+include("../class/conn.php");
+//判断是否被关闭
+$sql = "SELECT * FROM `takeoff` WHERE `id`=0";
+$query=mysql_query($sql,$con);
+$backcount=mysql_num_rows($query); 
+if($backcount==0){
+echo '<p><font color="#000000">抱歉，系统拒绝新的点歌，详情请见公告！</font></p>
+</div>
+<div class="modal-footer">
+<a href="#"data-dismiss="modal"class="btn"><font color="#000000">关闭</font></a>';
+}else{
+echo '<form id="form1" name="form1" action="../class/update.php" method="post">
 	  <p><font color="#000000">歌曲名：</font><input type="text"name="name"></p>
 	  <p><font color="#000000">点歌人：</font><input type="text"name="user"></p>
 	  <p><font color="#000000">送给：</font><input type="text"name="to"></p>
@@ -16,7 +28,9 @@
 </div>
 <div class="modal-footer">
 <a href="#"data-dismiss="modal"class="btn"><font color="#000000">关闭</font></a>
-<input type="button" name="Submit" class="btn btn-success" value="提交" onclick="submit();" />
+<input type="button" name="Submit" class="btn btn-success" value="提交" onclick="submit();" />';
+}
+?>
 </div>
 </div>
 

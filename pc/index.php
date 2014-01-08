@@ -10,6 +10,7 @@ include("tem/hand.htm");
 include("post.php");
 include("../class/img.php");
 ?>
+<div id="fixedLayer"><img src="http://img.smxybbs.net/getqrcode.jpg"></div>
 <script type="text/javascript">
 resizeBackground();
 $(window).resize(function() {

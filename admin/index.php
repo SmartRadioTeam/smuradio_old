@@ -2,9 +2,9 @@
 $ua=$_COOKIE["adminua"];
 if($ua!=""){
 if($ua=="touch"){
-header('Location: touch');
+header('Location: ./touch');
 }else{
-header('Location: mobile');
+header('Location: ./mobile');
 }
-}else{header('Location: touch');}
+}else{header('Location: ./touch');}
 ?>

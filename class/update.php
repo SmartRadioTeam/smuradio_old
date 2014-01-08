@@ -1,6 +1,7 @@
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=gbk">
 <?php
 include("conn.php");
+include("conf.php");
 //判断是否被关闭
 $sql = "SELECT * FROM `takeoff` WHERE `id`=0";
 $query=mysql_query($sql,$con);
@@ -59,12 +60,12 @@ $cip=urlencode($cip);
 $sql = "INSERT INTO `".MYSQLDB."`.`radio` (`user`, `name`, `message`,`to`,`time`,`uptime`,`ip`) VALUES ('$user', '$name', '$message', '$to', '$time','$uptime','$cip');";
 $result = mysql_query($sql,$con);
 if($result){
-header("Location: go.php?echo=".urlencode("您的信息已经成功提交到数据库，请耐心等待广播站排序播放！谢谢！"));
+header("Location: go.php?echo=".urlencode(SUBMITYES));
 $sql="ALTER TABLE  `radio` ORDER BY  `id`";
 mysql_query($sql,$con);
 }
 else{
-header("Location: go.php?echo=".urlencode("服务器错误！请通知管理员！管理员qq：381511791"));
+header("Location: go.php?echo=".urlencode(SUBMITNO));
 }
 }
 }
