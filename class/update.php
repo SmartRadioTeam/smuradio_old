@@ -41,11 +41,11 @@ $to = str_replace('>', '', $to);
 $time = str_replace('<', '', $time);
 $time = str_replace('>', '', $time);
 if($name==""||$user==""||$message==""||$to==""||$time==""){  
-header("Location: class/go.php?echo=".urlencode("信息不能为空"));
+header("Location: go.php?echo=".urlencode("信息不能为空"));
 }
 else{
 if(strlen($message)>280){
-header("Location: class/go.php?echo=".urlencode("祝福超过140字，请修改后发布！"));
+header("Location: go.php?echo=".urlencode("祝福超过140字，请修改后发布！"));
 }else{
 //url转码
 $user=urlencode($user);
@@ -57,11 +57,11 @@ $uptime=urlencode($uptime);
 $cip=urlencode($cip);
 
 //写入
-$sql = "INSERT INTO `".MYSQLDB."`.`radio` (`user`, `name`, `message`,`to`,`time`,`uptime`,`ip`) VALUES ('$user', '$name', '$message', '$to', '$time','$uptime','$cip');";
+$sql = "INSERT INTO `".MYSQLDB."`.`radio` (`user`, `name`, `message`,`to`,`time`,`uptime`,`ip`,`info`) VALUES ('$user', '$name', '$message', '$to', '$time','$uptime','$cip','0');";
 $result = mysql_query($sql,$con);
 if($result){
 header("Location: go.php?echo=".urlencode(SUBMITYES));
-$sql="ALTER TABLE  `radio` ORDER BY  `id`";
+$sql="ALTER TABLE  `radio` ORDER BY  `info`";
 mysql_query($sql,$con);
 }
 else{

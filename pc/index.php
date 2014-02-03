@@ -27,7 +27,7 @@ include ("tem/t.htm");
 echo "<br>";
 include ("../class/bsmessage.php");
 ?>	
-    </div><br>
+    </div>
     <div>
         <h3>今日已点曲目列表</h3>
 		  <table class='table table-bordered' width=948>
@@ -47,7 +47,20 @@ echo "<thead>
 <tr>
 <td>".urldecode($row[name])."</td>
 <td>".urldecode($row[user])."</td>
-<td>送给：".urldecode($row[to])."<br>最想对TA说：「".urldecode($row[message])."」</td>
+<td>状态：";
+$info=$row[info];
+if($info=="0"){
+echo '<span class="label">未播放</span>';
+}
+if($info=="1"){
+echo '<span class="label label-success">已播放</span>';
+}
+if($info=="2"){
+echo '<span class="label label-important">无法播放</span>';}
+echo "
+<br>送给：".urldecode($row[to])."<br>
+最想对TA说：「".urldecode($row[message])."」
+</td>
 </tr>
 </thead>";
 }

@@ -50,9 +50,23 @@ return false;
 }else if(document.form1.message.value==""){
 alert('想说的话不能为空!');
 return false;
-}else{
+}else if(
+document.form1.name.value.indexOf("<") < 0
+||document.form1.name.value.indexOf(">") < 0
+||document.form1.user.value.indexOf("<") < 0
+||document.form1.user.value.indexOf(">") < 0
+||document.form1.to.value.indexOf("<") < 0
+||document.form1.to.value.indexOf(">") < 0
+||document.form1.time.value.indexOf("<") < 0
+||document.form1.time.value.indexOf(">") < 0
+||document.form1.message.value.indexOf("<") < 0
+||document.form1.message.value.indexOf(">") < 0)
+{
 document.form1.submit();
 return true; 
+}else{
+alert('请不要输入非法字符!');
+return false;
 }
 }
 </script> 

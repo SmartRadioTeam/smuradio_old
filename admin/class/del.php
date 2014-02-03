@@ -13,5 +13,5 @@ mysql_query($sql,$con);
 header("Location: ../go.php");
 }else{echo "ÃÜÂë´íÎó£¡";}
 mysql_close($con);
-}else{header("location:../login.php");}
+}else{header("location:../");}
 ?>

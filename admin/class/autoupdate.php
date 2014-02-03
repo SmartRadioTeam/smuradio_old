@@ -1,12 +1,17 @@
 <?php
+include("../../class/conn.php");
+//判断是否被关闭
+$sql = "SELECT * FROM `takeoff` WHERE `id`=0";
+$query=mysql_query($sql,$con);
+$backcount=mysql_num_rows($query); 
+if($backcount!=0){
 $cip = "检测到无点歌信息，系统自动点歌。如有他人点歌信息请优先播放他人点歌。";
 date_default_timezone_set ('PRC');
 $uptime=date("Y-m-d H:i:s",time());
-include_once("../../class/conn.php");
-$sql = "SELECT * FROM `radio`";
+$sql = "SELECT * FROM `radio` WHERE `info`=0";//检测未播放点歌数量
 $result = mysql_query($sql,$con);
 $count=mysql_num_rows($result);
-if($count==0){
+if($count==0){ //判断是否需要点歌，count数为当前点歌记录数
 $sql = "SELECT * FROM `songtable`";
 $query = mysql_query($sql,$con);
 while($row=mysql_fetch_array($query)){
@@ -33,5 +38,5 @@ $sql="ALTER TABLE  `radio` ORDER BY  `id`";
 mysql_query($sql,$con);
 mysql_close($con);
 }
-
+}
 ?>

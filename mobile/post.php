@@ -21,4 +21,4 @@ include ("../class/message.php");
 <input type="submit" value="提交" name="m">
 </form>
 <br>
-<a href="http://www.smxybbs.net/">技术支持:三明学院论坛工作室</a><br>Program Design by qwe7002.
+<a href="http://www.smxybbs.net/">技术支持:三明学院论坛工作室</a><br>Program Design by qwe7002.<br><a href="http://www.miitbeian.gov.cn/" target="_blank"><?php echo BEIAN;?></a><?php echo TJ;?>

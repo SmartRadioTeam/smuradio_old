@@ -11,5 +11,5 @@ else{
 echo "服务器错误！请通知管理员！管理员qq：381511791";
 }
 mysql_close($con);
-}else{header("location:../login.php");}
+}else{header("location:../");}
 ?>	

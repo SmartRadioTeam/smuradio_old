@@ -22,5 +22,5 @@ else{
 header("Location: ../go.php");
 }
 mysql_close($con);
-}else{header("location:../login.php");}
+}else{header("location:../");}
 ?>
