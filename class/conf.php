@@ -4,8 +4,8 @@
 /*»ù´¡ÅäÖÃ*/
 define("PROJECTNAME", "ÍøÕ¾Ãû³Æ"); //ÍøÕ¾Ãû³Æ
 define("PASSWORD", "ºóÌ¨ÃÜÂë");//ºóÌ¨ÃÜÂë
-define("IMGURL", "/");//pc¶ËÍ¼Æ¬·þÎñÆ÷µØÖ·£¨¿ÉÒÔÎª¾ø¶ÔÂ·¾¶»òÕßÏà¶ÔÂ·¾¶£©
-define("IMGRAND", "pc¶Ëµ×Í¼ÊýÁ¿");//pc¶Ëµ×Í¼ÊýÁ¿
+define("IMGURL", "/img");//pc¶ËÍ¼Æ¬·þÎñÆ÷µØÖ·£¨¿ÉÒÔÎª¾ø¶ÔÂ·¾¶»òÕßÏà¶ÔÂ·¾¶,ÎÄ¼þÎªjpg¸ñÊ½£©
+define("IMGRAND", "1");//pc¶Ëµ×Í¼ÊýÁ¿£¨ÎÄ¼þÃûÎª1-´Ë³£Á¿µÄÖµ£©
 define("MYSQLHOST", "localhost");//Êý¾Ý¿âµØÖ·
 define("MYSQLUSER", "Êý¾Ý¿âÓÃ»§Ãû");//Êý¾Ý¿âÓÃ»§Ãû
 define("MYSQLPASSWORD", "Êý¾Ý¿âÃÜÂë");//Êý¾Ý¿âÃÜÂë
@@ -16,6 +16,5 @@ define("SUBMITYES", "ÄúµÄÐÅÏ¢ÒÑ¾­³É¹¦Ìá½»µ½Êý¾Ý¿â£¬ÇëÄÍÐÄµÈ´ý¹ã²¥Õ¾ÅÅÐò²¥·Å£¡Ð»Ð
 define("SUBMITNO", "·þÎñÆ÷´íÎó£¡ÇëÍ¨Öª¹ÜÀíÔ±£¡¹ÜÀíÔ±qq£º381511791"); //Ìá½»Ê§°Ü
 
 /*Ò³µ×½Å±¾*/
-define("TJ", '<script type="text/javascript" src="http://tajs.qq.com/stats?sId=30230785" charset="UTF-8"></script>
-'); //Í³¼Æ½Å±¾
-define("BEIAN", "ËÕICP±¸13058877ºÅ");//±¸°¸
+define("TJ", ''); //Í³¼Æ½Å±¾
+define("BEIAN", "");//±¸°¸

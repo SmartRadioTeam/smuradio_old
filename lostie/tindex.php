@@ -3,21 +3,31 @@
 include ("class/pctest.php");
 include("../class/conf.php");
 ?>
-<title>首页 - <?php echo PROJECTNAME;?> - Powered by smuradio</title>
-<?php
+<title>已播放点播 - <?php echo PROJECTNAME;?> - Powered by smuradio</title>
+		<?php
 include ("class/t.htm");
-?>
-        <h3><?php echo PROJECTNAME;?></h3>
+?>        <h3><?php echo PROJECTNAME;?></h3>
         <h4>每天音乐好心情</h4>
 			<?php
 include ("../class/message.php");
 ?>	
-        <h3>今日已点曲目列表:</h3>
-		
+        <h3>已播放点播:</h3>
 		<hr/>
+				<?php
+include("../class/conn.php");
+$sql = "SELECT * FROM `timetable`";
+$query = mysql_query($sql,$con);
+$id=0;
+while($row=mysql_fetch_array($query)){
+echo "<p>上次自动清理数据库时间：".$row[deltime];
+$id=$id+1;
+}
+mysql_close($con);
+?>	
+<hr/>  
 <?php
 include("../class/conn.php");
-$sql = "SELECT * FROM `radio`";
+$sql = "SELECT * FROM `delradio`";
 $query = mysql_query($sql,$con);
 while($row=mysql_fetch_array($query)){
 echo "<p>歌曲名：".urldecode($row[name])."</p>

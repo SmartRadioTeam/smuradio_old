@@ -1,16 +1,16 @@
+
 <html>
 <?php
 include("class/testmobile.php");
 include("../class/conf.php");
 ?>
 <head><meta http-equiv="Content-Type" content="text/html; charset=gbk">
-<title>首页 - <?php echo PROJECTNAME;?> - Powered by smuradio</title>
+<title>未播放点播 - <?php echo PROJECTNAME;?> - Powered by smuradio</title>
 <?php
 include("tem/hand.htm");
 include("post.php");
 include("../class/img.php");
 ?>
-<div id="fixedLayer"><img src="http://img.smxybbs.net/getqrcode.jpg"></div>
 <script type="text/javascript">
 resizeBackground();
 $(window).resize(function() {
@@ -24,13 +24,19 @@ $(window).resize(function() {
         <h6>每天音乐好心情</h6>
 		<?php
 include ("tem/t.htm");
-echo "<br>";
+include("../class/conn.php");
+$sql = "SELECT * FROM `timetable`";
+$query = mysql_query($sql,$con);
+while($row=mysql_fetch_array($query)){
+echo "<h6>上次自动清理数据库时间：".$row[deltime]."</h6>";
+}
+mysql_close($con);
 include ("../class/bsmessage.php");
 ?>	
-    </div><br>
+</div><br>
     <div>
-        <h3>今日已点曲目列表</h3>
-		  <table class='table table-bordered' width=948>
+        <h3>未播放点播</h3>
+		    <table class='table table-bordered' width=948>
         <thead>
             <tr>
 			    <th width=100>歌曲名：</th>
@@ -40,7 +46,7 @@ include ("../class/bsmessage.php");
         </thead>
 <?php
 include("../class/conn.php");
-$sql = "SELECT * FROM `radio`";
+$sql = "SELECT * FROM `noplay`";
 $query = mysql_query($sql,$con);
 while($row=mysql_fetch_array($query)){
 echo "<thead>
@@ -57,6 +63,6 @@ mysql_close($con);
 </div>
     </div>
 </div><br>
-	<?php
+		<?php
 include ("tem/foot.htm");
 ?>

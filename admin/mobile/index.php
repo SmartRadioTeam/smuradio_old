@@ -53,21 +53,13 @@ echo "<p>提交时间：".urldecode($row[uptime])."</p>
 <p>点歌人：".urldecode($row[user])."</p>
 <p>送给：".urldecode($row[to])."</p>
 <p>留言：".urldecode($row[message])."</p>
-<p>投稿者ip：".urldecode($row[ip])."</p><p>状态：";
-if($row[info]==0){echo "未播放";}
-else if($row[info]==1){echo "已播放";}
-else{echo "无法播放";}
-echo '</p><form action="../class/delmusic.php" method="post" enctype="multipart/form-data">
+<p>投稿者ip：".urldecode($row[ip])."</p>";
+echo '<form action="../class/delmusic.php" method="post" enctype="multipart/form-data">
 <input type="hidden" name="id" value="'.$row[id].'">
 <input type="submit" name="submit" value="标记为已播放" />
-</form>
-<form action="../class/backmusic.php" method="post" enctype="multipart/form-data">
+</form><form action="../class/delnoplay.php" method="post" enctype="multipart/form-data">
 <input type="hidden" name="id" value="'.$row[id].'">
 <input type="submit" name="submit" value="标记为未播放" />
-</form>
-<form action="../class/delnoplay.php" method="post" enctype="multipart/form-data">
-<input type="hidden" name="id" value="'.$row[id].'">
-<input type="submit" name="submit" value="标记为无法播放" />
 </form><hr>';
 
 }

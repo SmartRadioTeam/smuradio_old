@@ -8,7 +8,7 @@ if($backcount!=0){
 $cip = "检测到无点歌信息，系统自动点歌。如有他人点歌信息请优先播放他人点歌。";
 date_default_timezone_set ('PRC');
 $uptime=date("Y-m-d H:i:s",time());
-$sql = "SELECT * FROM `radio` WHERE `info`=0";//检测未播放点歌数量
+$sql = "SELECT * FROM `radio`";
 $result = mysql_query($sql,$con);
 $count=mysql_num_rows($result);
 if($count==0){ //判断是否需要点歌，count数为当前点歌记录数

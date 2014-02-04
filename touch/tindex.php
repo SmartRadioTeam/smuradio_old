@@ -5,21 +5,29 @@ include("class/testmobile.php");
 include("../class/conf.php");
 include("tem/hand.htm");
 ?>
-<title>首页 - <?php echo PROJECTNAME;?> - Powered by smuradio</title>
+<title>已播放点播 - <?php echo PROJECTNAME;?> - Powered by smuradio</title>
 <body>
 <?php 
 include("tem/t.php");
 ?>
 <div class="container" id="body" style="width: 90%;">
+<br>
 <?php 
+include("../class/conn.php");
+$sql = "SELECT * FROM `timetable`";
+$query = mysql_query($sql,$con);
+$id=0;
+while($row=mysql_fetch_array($query)){
+echo ' <div class="alert alert-success">上次自动清理数据库时间：'.$row[deltime]."</div>";
+}
+mysql_close($con);
 include ("../class/bsmessage.php");
 include("post.php"); 
 ?>
-<br>
 <div>
 <?php
 include("../class/conn.php");
-$sql = "SELECT * FROM `radio`";
+$sql = "SELECT * FROM `delradio`";
 $query = mysql_query($sql,$con);
 while($row=mysql_fetch_array($query)){
 echo '<div class="anime img-thumbnail" id="anime">';
@@ -28,7 +36,6 @@ echo "歌曲名：".urldecode($row[name])."<br><br>
 送给：".urldecode($row[to])."<br><br>
 最想对TA说:「".urldecode($row[message])."」";
 echo '<div style="height:1px; margin-top:-1px;clear: both;overflow:hidden;"></div></div>';
-
 }
 mysql_close($con);
 ?>
