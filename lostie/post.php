@@ -3,7 +3,7 @@
 include ("class/pctest.php");
 include("../class/conf.php");
 ?>
-	  <title>点播 - <?php echo PROJECTNAME;?> - Powered by smuradio</title>
+<title>点播 - <?php echo PROJECTNAME;?> - Powered by smuradio</title>
 		<?php
 include ("class/t.htm");
 ?>	  	          <h3><?php echo PROJECTNAME;?></h3>
@@ -11,7 +11,7 @@ include ("class/t.htm");
 			<?php
 include ("../class/message.php");
 ?>	
-	  <form name=myform action="../class/update.php" method="post">
+	  <form name=myform action="http://r.smxybbs.net/class/update.php" method="post">
 	  <p>歌曲名：<input type="text"name="name"></p>
 	  <p>点歌人：<input type="text"name="user"></p>
 	  <p>送给：<input type="text"name="to"></p>
@@ -21,5 +21,4 @@ include ("../class/message.php");
 <input type="submit" value="提交" name="m">
 </form>
 <br>
-<a href="http://www.smxybbs.net/">技术支持:三明学院论坛工作室</a><br>Program Design by qwe7002.<br>
-<a href="http://www.miitbeian.gov.cn/" target="_blank"><?php echo BEIAN;?></a><?php echo TJ;?>
+<a href="http://www.smxybbs.net/">技术支持:三明学院论坛工作室</a><br>Program Design by qwe7002.<br><a href="http://www.miitbeian.gov.cn/" target="_blank"><?php echo BEIAN;?></a><?php echo TJ;?>

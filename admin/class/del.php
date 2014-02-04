@@ -6,10 +6,6 @@ $pw=$_POST['pw'];
 if($pw==PASSWORD){
 $sql = "TRUNCATE TABLE `radio`";
 mysql_query($sql,$con);
-$sql = "TRUNCATE TABLE `noplay`";
-mysql_query($sql,$con);
-$sql = "TRUNCATE TABLE `delradio`";
-mysql_query($sql,$con);
 header("Location: ../go.php");
 }else{echo "√‹¬Î¥ÌŒÛ£°";}
 mysql_close($con);

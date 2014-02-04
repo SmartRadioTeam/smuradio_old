@@ -17,4 +17,5 @@ $result = mysql_query($sql,$con);
 $sql = "INSERT INTO `".MYSQLDB."`.`timetable` (`deltime`) VALUES ('$time');";
 $result = mysql_query($sql,$con);
 mysql_close($con);
+header("Location: ../go.php");
 ?>
