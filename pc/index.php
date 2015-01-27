@@ -1,16 +1,23 @@
-<html>
+ï»¿<html>
 <?php
 include("class/testmobile.php");
 include("../class/conf.php");
 ?>
-<head><meta http-equiv="Content-Type" content="text/html; charset=gbk">
-<title>Ê×Ò³ - <?php echo PROJECTNAME;?> - Powered by smuradio</title>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>é¦–é¡µ - <?php echo PROJECTNAME;?> - Powered by smuradio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="<?php echo DESCRIPTION;?>">
+<meta name="author" content="<?php echo AUTHOR;?>">
+<meta name="keywords" content="<?php echo KEYWORDS;?>">
 <?php
 include("tem/hand.htm");
 include("post.php");
-include("../class/img.php");
+include("lostandfound.php");
+include("tem/bimg.php");
+if(ERWEIMA!=""){
+echo '<div id="fixedLayer"><img src="'.ERWEIMA.'"></div>';
+}
 ?>
-<div id="fixedLayer"><img src="http://img.smxybbs.net/getqrcode.jpg"></div>
 <script type="text/javascript">
 resizeBackground();
 $(window).resize(function() {
@@ -21,7 +28,7 @@ $(window).resize(function() {
 <div id="main">
     <div>
         <h1><?php echo PROJECTNAME;?></h1>
-        <h6>Ã¿ÌìÒôÀÖºÃĞÄÇé</h6>
+        <h6>æ¯å¤©éŸ³ä¹å¥½å¿ƒæƒ…</h6>
 		<?php
 include ("tem/t.htm");
 echo "<br>";
@@ -29,13 +36,12 @@ include ("../class/bsmessage.php");
 ?>	
     </div>
     <div>
-        <h3>ÒÑµãÇúÄ¿ÁĞ±í</h3>
 		  <table class='table table-bordered' width=948>
         <thead>
             <tr>
-			    <th width=100>¸èÇúÃû£º</th>
-                <th width=100>µã¸èÈË£º</th>
-				<th width=748>×îÏëËµµÄ»°£º</th>
+			    <th width=100>æ­Œæ›²åï¼š</th>
+                <th width=100>ç‚¹æ­Œäººï¼š</th>
+				<th width=748>æœ€æƒ³è¯´çš„è¯ï¼š</th>
             </tr> 
         </thead>
 <?php
@@ -47,19 +53,19 @@ echo "<thead>
 <tr>
 <td>".urldecode($row[name])."</td>
 <td>".urldecode($row[user])."</td>
-<td>×´Ì¬£º";
+<td>çŠ¶æ€ï¼š";
 $info=$row[info];
 if($info=="0"){
-echo '<span class="label">Î´²¥·Å</span>';
+echo '<span class="label">æœªæ’­æ”¾</span>';
 }
 if($info=="1"){
-echo '<span class="label label-success">ÒÑ²¥·Å</span>';
+echo '<span class="label label-success">å·²æ’­æ”¾</span>';
 }
 if($info=="2"){
-echo '<span class="label label-important">ÎŞ·¨²¥·Å</span>';}
+echo '<span class="label label-important">æ— æ³•æ’­æ”¾</span>';}
 echo "
-<br>ËÍ¸ø£º".urldecode($row[to])."<br>
-×îÏë¶ÔTAËµ£º¡¸".urldecode($row[message])."¡¹
+<br>é€ç»™ï¼š".urldecode($row[to])."<br>
+æœ€æƒ³å¯¹TAè¯´ï¼šã€Œ".urldecode($row[message])."ã€
 </td>
 </tr>
 </thead>";

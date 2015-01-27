@@ -1,12 +1,12 @@
 <?php
 include("../../class/conn.php");
 include("../../class/conf.php");
-//ÅÐ¶ÏÊÇ·ñ±»¹Ø±Õ
+//åˆ¤æ–­æ˜¯å¦è¢«å…³é—­
 $sql = "SELECT * FROM `takeoff` WHERE `id`=0";
 $query=mysql_query($sql,$con);
 $backcount=mysql_num_rows($query); 
 if($backcount!=0){
-$cip = "¼ì²âµ½ÎÞµã¸èÐÅÏ¢£¬ÏµÍ³×Ô¶¯µã¸è¡£ÈçÓÐËûÈËµã¸èÐÅÏ¢ÇëÓÅÏÈ²¥·ÅËûÈËµã¸è¡£";
+$cip = "æ£€æµ‹åˆ°æ— ç‚¹æ­Œä¿¡æ¯ï¼Œç³»ç»Ÿè‡ªåŠ¨ç‚¹æ­Œã€‚å¦‚æœ‰ä»–äººç‚¹æ­Œä¿¡æ¯è¯·ä¼˜å…ˆæ’­æ”¾ä»–äººç‚¹æ­Œã€‚";
 date_default_timezone_set ('PRC');
 $uptime=date("Y-m-d H:i:s",time());
 $sql = "SELECT * FROM `radio` WHERE `info`=0";
@@ -27,12 +27,12 @@ $name=$song[rand(0,$count)];
 $to=$username[rand(0,$count)];
 $message=$messages[rand(0,$count)];
 if($user==$to){
-$to=urlencode("×Ô¼º");
+$to=urlencode("è‡ªå·±");
 }
-$time=urlencode("»úÆ÷ÈË×Ô¶¯µã¸è£¬ÇëÔÚÃ»ÓÐÆäËûµã¸èµÄÊ±ºò²¥·Å£¡");
+$time=urlencode("æœºå™¨äººè‡ªåŠ¨ç‚¹æ­Œï¼Œè¯·åœ¨æ²¡æœ‰å…¶ä»–ç‚¹æ­Œçš„æ—¶å€™æ’­æ”¾ï¼");
 $uptime=urlencode($uptime);
 $cip=urlencode($cip);
-//Ð´Èë
+//å†™å…¥
 $sql = "INSERT INTO `".MYSQLDB."`.`radio` (`user`, `name`, `message`,`to`,`time`,`uptime`,`ip`) VALUES ('$user', '$name', '$message', '$to', '$time','$uptime','$cip');";
 $result = mysql_query($sql,$con);
 $sql="ALTER TABLE  `radio` ORDER BY  `info`";

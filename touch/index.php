@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+ï»¿<!DOCTYPE html>
+<html lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
 include("class/testmobile.php");
 include("../class/conf.php");
 include("tem/hand.htm");
 ?>
-<title>Ê×Ò³ - <?php echo PROJECTNAME;?> - Powered by smuradio</title>
+<meta name="description" content="<?php echo DESCRIPTION;?>">
+<meta name="author" content="<?php echo AUTHOR;?>">
+<meta name="keywords" content="<?php echo KEYWORDS;?>">
+</head>
+<title>é¦–é¡µ - <?php echo PROJECTNAME;?> - Powered by smuradio</title>
 <body>
 <?php 
 include("tem/t.php");
@@ -14,6 +18,7 @@ include("tem/t.php");
 <?php 
 include ("../class/bsmessage.php");
 include("post.php"); 
+include("lostandfound.php");
 ?>
 <br>
 <div>
@@ -23,21 +28,21 @@ $sql = "SELECT * FROM `radio`";
 $query = mysql_query($sql,$con);
 while($row=mysql_fetch_array($query)){
 echo '<div class="anime img-thumbnail" id="anime">';
-echo '×´Ì¬£º';
+echo 'çŠ¶æ€ï¼š';
 $info=$row[info];
 if($info=="0"){
-echo '<span class="label label-default">Î´²¥·Å</span>';
+echo '<span class="label label-default">æœªæ’­æ”¾</span>';
 }
 if($info=="1"){
-echo '<span class="label label-success">ÒÑ²¥·Å</span>';
+echo '<span class="label label-success">å·²æ’­æ”¾</span>';
 }
 if($info=="2"){
-echo '<span class="label label-danger">ÎŞ·¨²¥·Å</span>';}
+echo '<span class="label label-danger">æ— æ³•æ’­æ”¾</span>';}
 echo "<br><br>
-¸èÇúÃû£º".urldecode($row[name])."<br><br>
-µã¸èÈË£º".urldecode($row[user])."<br><br>
-ËÍ¸ø£º".urldecode($row[to])."<br><br>
-×îÏë¶ÔTAËµ:¡¸".urldecode($row[message])."¡¹";
+æ­Œæ›²åï¼š".urldecode($row[name])."<br><br>
+ç‚¹æ­Œäººï¼š".urldecode($row[user])."<br><br>
+é€ç»™ï¼š".urldecode($row[to])."<br><br>
+æœ€æƒ³å¯¹TAè¯´:ã€Œ".urldecode($row[message])."ã€";
 echo '<div style="height:1px; margin-top:-1px;clear: both;overflow:hidden;"></div></div>';
 }
 mysql_close($con);

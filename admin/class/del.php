@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 if(isset($_COOKIE['login'])){
 include("../../class/conf.php");
 include("../../class/conn.php");
@@ -7,7 +7,7 @@ if($pw==PASSWORD){
 $sql = "TRUNCATE TABLE `radio`";
 mysql_query($sql,$con);
 header("Location: ../go.php");
-}else{echo "ÃÜÂë´íÎó£¡";}
+}else{echo "å¯†ç é”™è¯¯ï¼";}
 mysql_close($con);
 }else{header("location:../");}
 ?>

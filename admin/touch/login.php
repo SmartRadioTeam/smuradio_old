@@ -1,4 +1,4 @@
-<html lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+锘�<html lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
 include("../../class/conf.php");
 error_reporting(0);
@@ -18,9 +18,9 @@ echo'<!DOCTYPE html>
   <body>
     <div class="container">
       <form class="form-signin" role="form" id="1298341720" method="post">
-        <h2 class="form-signin-heading">登录管理中心</h2>
-        <input type="password" name="password" class="form-control" placeholder="密码" required="">
-        <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+        <h2 class="form-signin-heading">鐧诲綍绠＄悊涓績</h2>
+        <input type="password" name="password" class="form-control" placeholder="瀵嗙爜" required="">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">鐧诲綍</button>
       </form>
 
     </div>
@@ -38,4 +38,4 @@ header('location:index.php');
 }
 ?>
 
-<title>登录 - <?php echo PROJECTNAME;?>管理中心 - Powered by smuradio</title>
+<title>鐧诲綍 - <?php echo PROJECTNAME;?>绠＄悊涓績 - Powered by smuradio</title>

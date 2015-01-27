@@ -1,17 +1,17 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=gbk">
+ï»¿<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
 if(isset($_COOKIE['login'])){
 include("../../class/conn.php");
 $message=$_POST['off'];
 if($message==""){  
-echo "ÐÅÏ¢²»ÄÜÎª¿Õ";}
+echo "ä¿¡æ¯ä¸èƒ½ä¸ºç©º";}
 else{
 $sql = "TRUNCATE TABLE `takeoff`";
 $result = mysql_query($sql,$con);
 $sql = "INSERT INTO `".MYSQLDB."`.`takeoff` (`id`) VALUES ('$message');";
 $result = mysql_query($sql,$con);
 if($result){header("Location: ../go.php");}else{
-echo "·þÎñÆ÷´íÎó£¡ÇëÍ¨Öª¹ÜÀíÔ±£¡¹ÜÀíÔ±qq£º381511791";
+echo "æœåŠ¡å™¨é”™è¯¯ï¼è¯·é€šçŸ¥ç®¡ç†å‘˜ï¼ç®¡ç†å‘˜qqï¼š381511791";
 }
 }
 mysql_close($con);

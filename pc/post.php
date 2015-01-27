@@ -1,34 +1,91 @@
-
-<div class="modal hide  fade" id="post">
+ï»¿<div class="modal hide  fade" id="post">
 <div class="modal-header">
-<button type="button" class="close" data-dismiss="modal">¡Á</button>
-<h3 style="text-shadow:0px 0px;"><font color="#000000">Ìá½»µã¸èµ¥</font></h3>
+<button type="button" class="close" data-dismiss="modal">Ã—</button>
+<h3 style="text-shadow:0px 0px;"><font color="#000000">æäº¤ç‚¹æ­Œå•</font></h3>
 </div>
 <div class="modal-body">
 <?php
+date_default_timezone_set ('PRC');
 include("../class/conn.php");
-//ÅĞ¶ÏÊÇ·ñ±»¹Ø±Õ
+//åˆ¤æ–­æ˜¯å¦è¢«å…³é—­
 $sql = "SELECT * FROM `takeoff` WHERE `id`=0";
 $query=mysql_query($sql,$con);
 $backcount=mysql_num_rows($query); 
 if($backcount==0){
-echo '<p><font color="#000000">±§Ç¸£¬ÏµÍ³¾Ü¾øĞÂµÄµã¸è£¬ÏêÇéÇë¼û¹«¸æ£¡</font></p>
+echo '<p><font color="#000000">æŠ±æ­‰ï¼Œç³»ç»Ÿæ‹’ç»æ–°çš„ç‚¹æ­Œï¼Œè¯¦æƒ…è¯·è§å…¬å‘Šï¼</font></p>
 </div>
 <div class="modal-footer">
-<a href="#"data-dismiss="modal"class="btn"><font color="#000000">¹Ø±Õ</font></a>';
+<a href="#"data-dismiss="modal"class="btn"><font color="#000000">å…³é—­</font></a>';
 }else{
 echo '<form id="form1" name="form1" action="../class/update.php" method="post">
-	  <p><font color="#000000">¸èÇúÃû£º</font><input type="text"name="name"></p>
-	  <p><font color="#000000">µã¸èÈË£º</font><input type="text"name="user"></p>
-	  <p><font color="#000000">ËÍ¸ø£º</font><input type="text"name="to"></p>
-	  <p><font color="#000000">Ï£ÍûºÎÊ±²¥·Å£º<input type="text"name="time"><br>(ÇëÊäÈëÄúÏëÔÚÄÄÒ»ÌìÄÄ¸öÊ±¶Î²¥³ö,Ê±¶Î·ÖÎªÖĞÎçºÍÏÂÎçÁ½¸öÊ±¶Î¡£)</font></p>
-<p><font color="#000000">ÏëËµµÄ»°:</font><input name="message"style="width:420px; height=20px;" onkeyup="checkLength(this);"></p>
-<p><font color="#000000">ÎÄ×Ö×î´ó³¤¶È: 140. »¹Ê£: <span id="chLeft">140</span></font></p>
+	  <p><font color="#000000">æ­Œæ›²åï¼š</font><input type="text"name="name"></p>
+	  <p><font color="#000000">ç‚¹æ­Œäººï¼š</font><input type="text"name="user"></p>
+	  <p><font color="#000000">é€ç»™ï¼š</font><input type="text"name="to"></p>
+	  <p><font color="#000000">å¸Œæœ›ä½•æ—¶æ’­æ”¾ï¼š';
+	  echo '<select name="time" style="width:100px;">';
+	  $i=1;
+	  $today=date("m",time());
+	  while($i!=13){
+	  if(strlen($i)==1){
+	  $i='0'.$i;
+	  }
+	  if($today==$i){
+	  echo '<option value ="'.$i.'" selected="selected">'.$i.'æœˆ</option>';
+	  }else{
+	  echo '<option value ="'.$i.'">'.$i.'æœˆ</option>';
+	  }
+	  $i=$i+1;
+	  }
+	  echo '</select><select name="day" style="width:100px;">';
+	    $i=1;
+		$today=date("d",time());
+	  while($i!=32){
+	   if(strlen($i)==1){
+	  $i='0'.$i;
+	  }
+	  if($today==$i){
+	  echo '<option value ="'.$i.'" selected="selected">'.$i.'æ—¥</option>';
+	  }else{
+	  echo '<option value ="'.$i.'">'.$i.'æ—¥</option>';
+	  }
+	  $i=$i+1;
+	  }
+	  echo '</select>';
+	  echo '<select name="option" style="width:100px;"><option value ="ä¸­åˆ">ä¸­åˆ</option><option value ="ä¸‹åˆ">ä¸‹åˆ</option></select></font></p>';
+	  echo'<p><font color="#000000">æƒ³è¯´çš„è¯:</font><input id="inputbox" name="message"style="width:420px; height=20px;" onkeyup="checkLength(this);"></p>
+<p><font color="#000000">æ–‡å­—æœ€å¤§é•¿åº¦: 140. è¿˜å‰©: <span id="chLeft">140</span></font></p>
+<body>  
+</body>  
 </form>
+<button class="btn btn-default" data-toggle="collapse" data-target="#em">é¢œæ–‡å­—</button>
+<br><br>
+<div id="em" class="collapse">
+<a href="#" onclick="emoticon(\'(âŒ’â–½âŒ’)\');" class="btn btn-default btn-xs" >(âŒ’â–½âŒ’)</a>
+<a href="#" onclick="emoticon(\'ï¼ˆï¿£â–½ï¿£ï¼‰\');" class="btn btn-default btn-xs" >ï¼ˆï¿£â–½ï¿£ï¼‰</a>
+<a href="#" onclick="emoticon(\'(ã€œï¿£â–³ï¿£)\');" class="btn btn-default btn-xs" >(ã€œï¿£â–³ï¿£)</a>
+<a href="#" onclick="emoticon(\'ã€œ(ï½¥âˆ€ï½¥)\');" class="btn btn-default btn-xs" >ã€œ(ï½¥âˆ€ï½¥)</a>
+<a href="#" onclick="emoticon(\'â†_â†\');" class="btn btn-default btn-xs" >â†_â†</a>
+<a href="#" onclick="emoticon(\'â†’_â†’\');" class="btn btn-default btn-xs" >â†’_â†’</a>
+<a href="#" onclick="emoticon(\'ãƒ½(âœ¿ï¾Ÿâ–½ï¾Ÿ)ãƒ\');" class="btn btn-default btn-xs" >ãƒ½(âœ¿ï¾Ÿâ–½ï¾Ÿ)ãƒ</a>
+<a href="#" onclick="emoticon(\'(ãƒâ‰§âˆ‡â‰¦)ãƒ\');" class="btn btn-default btn-xs" >(ãƒâ‰§âˆ‡â‰¦)ãƒ</a>
+<a href="#" onclick="emoticon(\'(-_-#)\');" class="btn btn-default btn-xs" >(-_-#)</a>
+<a href="#" onclick="emoticon(\'ï¼ˆï¿£ã¸ï¿£ï¼‰\');" class="btn btn-default btn-xs" >ï¼ˆï¿£ã¸ï¿£ï¼‰</a>
+<a href="#" onclick="emoticon(\'(ï¿£Îµ(#ï¿£) \');" class="btn btn-default btn-xs" >(ï¿£Îµ(#ï¿£) </a>
+<a href="#" onclick="emoticon(\'_(:3ã€âˆ )_\');" class="btn btn-default btn-xs" >_(:3ã€âˆ )_</a>
+<a href="#" onclick="emoticon(\'(Â¬_Â¬)\');" class="btn btn-default btn-xs" >(Â¬_Â¬)</a>
+<a href="#" onclick="emoticon(\'â†–(^Ï‰^)â†—\');" class="btn btn-default btn-xs" >â†–(^Ï‰^)â†—</a>
+<a href="#" onclick="emoticon(\'â™ª(Â´â–½ï½€)\');" class="btn btn-default btn-xs" >â™ª(Â´â–½ï½€)</a>
+<a href="#" onclick="emoticon(\'(âŠ™oâŠ™)\');" class="btn btn-default btn-xs" >(âŠ™oâŠ™)</a>
+<a href="#" onclick="emoticon(\'Î£(ï¼´Ï‰ï¼´)--\');" class="btn btn-default btn-xs" >Î£(ï¼´Ï‰ï¼´)--</a>
+<a href="#" onclick="emoticon(\'(ã¤Ğ´âŠ‚)\');" class="btn btn-default btn-xs" >(ã¤Ğ´âŠ‚)</a>
+<a href="#" onclick="emoticon(\'(*Â°âˆ€Â°)=3\');" class="btn btn-default btn-xs" >(*Â°âˆ€Â°)=3</a>
+<a href="#" onclick="emoticon(\'(ã€€ï¼¾âˆ€ï¼¾)\');" class="btn btn-default btn-xs" >(ã€€ï¼¾âˆ€ï¼¾)</a>
+<a href="#" onclick="emoticon(\'ï¼ˆã¥ï¿£3ï¿£ï¼‰ã¥â•­â¤ï½\');" class="btn btn-default btn-xs" >ï¼ˆã¥ï¿£3ï¿£ï¼‰ã¥â•­â¤ï½</a>
+</div>  
 </div>
 <div class="modal-footer">
-<a href="#"data-dismiss="modal"class="btn"><font color="#000000">¹Ø±Õ</font></a>
-<input type="button" name="Submit" class="btn btn-success" value="Ìá½»" onclick="submit();" />';
+<a href="#"data-dismiss="modal"class="btn"><font color="#000000">å…³é—­</font></a>
+<input type="button" name="Submit"  data-loading-text="Loading..." class="btn btn-success" value="æäº¤" onclick="submit();" />';
 }
 ?>
 </div>
@@ -46,19 +103,16 @@ function submit()
 {
 if(document.form1.name.value=="")
 {
-alert('¸èÇúÃû²»ÄÜÎª¿Õ!');
+alert('æ­Œæ›²åä¸èƒ½ä¸ºç©º!');
 return false;
 }else if(document.form1.user.value==""){
-alert('µã¸èÈË²»ÄÜÎª¿Õ!');
+alert('ç‚¹æ­Œäººä¸èƒ½ä¸ºç©º!');
 return false;
 }else if(document.form1.to.value==""){
-alert('ËÍ¸ø²»ÄÜÎª¿Õ!');
-return false;
-}else if(document.form1.time.value==""){
-alert('Ï£ÍûºÎÊ±²¥·Å²»ÄÜÎª¿Õ!');
+alert('é€ç»™ä¸èƒ½ä¸ºç©º!');
 return false;
 }else if(document.form1.message.value==""){
-alert('ÏëËµµÄ»°²»ÄÜÎª¿Õ!');
+alert('æƒ³è¯´çš„è¯ä¸èƒ½ä¸ºç©º!');
 return false;
 }else if(
 document.form1.name.value.indexOf("<") < 0
@@ -75,8 +129,10 @@ document.form1.name.value.indexOf("<") < 0
 document.form1.submit();
 return true; 
 }else{
-alert('Çë²»ÒªÊäÈë·Ç·¨×Ö·û!');
+alert('è¯·ä¸è¦è¾“å…¥éæ³•å­—ç¬¦!');
 return false;
 }
 }
+function emoticon(input){
+document.getElementById("inputbox").value = document.getElementById("inputbox").value+input;}
 </script> 

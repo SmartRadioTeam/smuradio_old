@@ -1,10 +1,4 @@
-<?php
-$ua=$_COOKIE["adminua"];
-if($ua!=""){
-if($ua=="touch"){
+﻿<?php
+error_reporting(0); 
 header('Location: ./touch');
-}else{
-header('Location: ./mobile');
-}
-}else{header('Location: ./touch');}
 ?>

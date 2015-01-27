@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+ï»¿<!DOCTYPE html>
+<html lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
 setcookie('adminua','touch',time()+315360000,"/");
 if(!isset($_COOKIE['login'])){header("location:login.php");}
 include("../../class/conf.php");
 include("tem/hand.htm");
+include ("change.php");
 ?>
-<title>Ê×Ò³ - <?php echo PROJECTNAME;?>¹ÜÀíÖĞĞÄ - Powered by smuradio</title>
+<title>ä»Šæ—¥æ’­æ”¾ - <?php echo PROJECTNAME;?>ç®¡ç†ä¸­å¿ƒ - Powered by smuradio</title>
 <body>
 <?php 
 include("tem/t.php");
@@ -16,51 +17,57 @@ include("tem/t.php");
 include ("infomation.php");
 ?>
 <br>
-<div class="alert alert-danger">
-<form name=myform action="../class/del.php" method="post">
-ÊäÈëµÇÂ¼ÃÜÂë»Ö¸´³õÊ¼»¯£¨´Ë²Ù×÷½«Çå¿ÕËùÓĞÊı¾İ²¢ÇÒÎŞ·¨»Ö¸´£¡ÇëÉ÷ÓÃ£¡£©<input type="text"name="pw"><input type="submit" value="Ìá½»" class="btn btn-danger" >
-</form>
-<a href="../class/cleanmusic.php" class="btn btn-danger" >Çå³ıÒÑ²¥·Å/ÎŞ·¨²¥·Å¼ÇÂ¼</a>
-</div>
-<br>
 <div>
 <?php
+date_default_timezone_set ('PRC');
+$day=$_GET['day'];
+if($day!=""){
+$today=$day;
+}else{
+$today=date("m-d",time());}
 include("../../class/conn.php");
-$sql = "SELECT * FROM `radio`";
+$sql = "SELECT * FROM `radio` WHERE `time`='$today'";
 $query = mysql_query($sql,$con);
 while($row=mysql_fetch_array($query)){
 echo '<div class="anime img-thumbnail" id="anime">';
-echo '×´Ì¬£º';
+echo 'çŠ¶æ€ï¼š';
 $info=$row[info];
 if($info=="0"){
-echo '<span class="label label-default">Î´²¥·Å</span>';
+echo '<span class="label label-default">æœªæ’­æ”¾</span>';
 }
 if($info=="1"){
-echo '<span class="label label-success">ÒÑ²¥·Å</span>';
+echo '<span class="label label-success">å·²æ’­æ”¾</span>';
 }
 if($info=="2"){
-echo '<span class="label label-danger">ÎŞ·¨²¥·Å</span>';}
+echo '<span class="label label-danger">æ— æ³•æ’­æ”¾</span>';}
 echo "<br><br>
-Ìá½»Ê±¼ä£º".urldecode($row[uptime])."<br><br>
-Ï£Íû²¥·ÅµÄÊ±¼ä£º".urldecode($row[time])."<br><br>
-¸èÇúÃû£º".urldecode($row[name])."<br><br>
-µã¸èÈË£º".urldecode($row[user])."<br><br>
-ËÍ¸ø£º".urldecode($row[to])."<br><br>
-ÁôÑÔ£º".urldecode($row[message])."<br><br>
-Í¶¸åÕßip£º".urldecode($row[ip])."<br><br>";
+æäº¤æ—¶é—´ï¼š".urldecode($row[uptime])."<br><br>
+å¸Œæœ›æ’­æ”¾çš„æ—¶é—´ï¼š".str_replace('-', 'æœˆ', urldecode($row[time]))."æ—¥ ".urldecode($row[option])."<br><br>
+æ­Œæ›²åï¼š".urldecode($row[name])."<br><br>
+ç‚¹æ­Œäººï¼š".urldecode($row[user])."<br><br>
+é€ç»™ï¼š".urldecode($row[to])."<br><br>
+ç•™è¨€ï¼š".urldecode($row[message])."<br><br>
+æŠ•ç¨¿è€…ipï¼š".'<a href="http://www.ip138.com/ips138.asp?ip='.urldecode($row[ip]).'">'.urldecode($row[ip])."</a><hr>";
+changepost($row[id],urldecode($row[name]),urldecode($row[user]),urldecode($row[to]),urldecode($row[message]));
 echo '<form action="../class/delmusic.php" method="post" enctype="multipart/form-data">
 <input type="hidden" name="id" value="'.$row[id].'">
-<input type="submit" name="submit" class="btn btn-success" value="±ê¼ÇÎªÒÑ²¥·Å" />
+<input type="submit" name="submit" class="btn btn-success" value="æ ‡è®°ä¸ºå·²æ’­æ”¾" />
 </form>
 <br><form action="../class/backmusic.php" method="post" enctype="multipart/form-data">
 <input type="hidden" name="id" value="'.$row[id].'">
-<input type="submit" name="submit" class="btn btn-default" value="±ê¼ÇÎªÎ´²¥·Å" />
+<input type="submit" name="submit" class="btn btn-default" value="æ ‡è®°ä¸ºæœªæ’­æ”¾" />
 </form>
 <br>
 <form action="../class/delnoplay.php" method="post" enctype="multipart/form-data">
 <input type="hidden" name="id" value="'.$row[id].'">
-<input type="submit" name="submit" class="btn btn-danger" value="±ê¼ÇÎªÎŞ·¨²¥·Å" />
-</form>';
+<input type="submit" name="submit" class="btn btn-danger" value="æ ‡è®°ä¸ºæ— æ³•æ’­æ”¾" />
+</form>
+<br>
+<form action="../class/delinit.php" method="post" enctype="multipart/form-data">
+<input type="hidden" name="id" value="'.$row[id].'">
+<input type="submit" name="submit" class="btn btn-primary" value="ç›´æ¥åˆ é™¤" />
+</form>
+';
 
 echo '<div style="height:1px; margin-top:-1px;clear: both;overflow:hidden;"></div></div>';
 

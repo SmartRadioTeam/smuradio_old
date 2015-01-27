@@ -1,4 +1,4 @@
-<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+ï»¿<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
 if(isset($_COOKIE['login'])){
 include("../../class/conn.php");
@@ -8,7 +8,7 @@ $result = mysql_query($sql,$con);
 if($result){
 header("Location: ../go.php");}
 else{
-echo "·þÎñÆ÷´íÎó£¡ÇëÍ¨Öª¹ÜÀíÔ±£¡¹ÜÀíÔ±qq£º381511791";
+echo "æœåŠ¡å™¨é”™è¯¯ï¼è¯·é€šçŸ¥ç®¡ç†å‘˜ï¼ç®¡ç†å‘˜qqï¼š381511791";
 }
 mysql_close($con);
 }else{header("location:../");}

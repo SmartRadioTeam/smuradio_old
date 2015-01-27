@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 include("conf.php");
 error_reporting(0); 
 $con = mysql_connect(MYSQLHOST,MYSQLUSER,MYSQLPASSWORD);
