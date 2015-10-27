@@ -12,11 +12,21 @@ echo '<a href="#post" class="btn btn-primary" data-toggle="collapse">我要点�
 <div id="post" class="collapse" style="height:0px;">
 <div class="anime img-thumbnail" id="anime">
 	  <form id="form1" name="form1" action="../class/update.php" method="post">
-	  <font color="#000000">歌曲名：</font><input type="text"name="name"><br><br>
-	  <font color="#000000">点歌人：</font><input type="text"name="user"><br><br>
-	 <font color="#000000">送给：</font><input type="text"name="to"><br><br>
-	  <font color="#000000">希望何时播放：<br><br>';	  
-	  echo '<select name="time" style="width:100px;">';
+	   <div class="form-group">
+    		<label>歌曲名：</label>
+			<input type="text"name="name" class="form-control" placeholder="歌曲名">
+		</div>
+		<div class="form-group">
+    		<label>点歌人：</label>
+			<input type="text"name="user" class="form-control" placeholder="点歌人">
+		</div>
+		<div class="form-group">
+    		<label>送给：</label>
+			<input type="text"name="to" class="form-control" placeholder="送给">
+		</div>
+		<div class="form-group">
+	  		<label>希望何时播放：</label>';	  
+	  echo '<select name="time" class="form-control">';
 	  $i=1;
 	  $today=date("m",time());
 	  while($i!=13){
@@ -30,7 +40,7 @@ echo '<a href="#post" class="btn btn-primary" data-toggle="collapse">我要点�
 	  }
 	  $i=$i+1;
 	  }
-	  echo '</select><br><br><select name="day" style="width:100px;">';
+	  echo '</select><select name="day" class="form-control">';
 	    $i=1;
 		$today=date("d",time());
 	  while($i!=32){
@@ -44,10 +54,11 @@ echo '<a href="#post" class="btn btn-primary" data-toggle="collapse">我要点�
 	  }
 	  $i=$i+1;
 	  }
-	  echo '</select><br><br>';
-	  echo '<select name="option" style="width:100px;"><option value ="中午">中午</option><option value ="下午">下午</option></select></font><br><br>
-<font color="#000000">想说的话:</font><input id="inputbox" name="message" onkeyup="checkLength(this);"><br><br>
-<font color="#000000">文字最大长度: 140. 还剩: <span id="chLeft">140</span></font><br><br>
+	  echo '</select>';
+	  echo '<select name="option" class="form-control"><option value ="中午">中午</option><option value ="下午">下午</option></select></div>
+<div class="form-group">
+<label>想说的话:</label><textarea class="form-control" rows="3" id="inputbox" name="message" onkeyup="checkLength(this);"></textarea>
+</div><font color="#000000">文字最大长度: 140. 还剩: <span id="chLeft">140</span></font><br><br>
 </form>
 <button class="btn btn-default" data-toggle="collapse" data-target="#em">颜文字</button>
 <br><br>
